@@ -1,0 +1,6 @@
+contextlib2
+flake8
+pytest
+pytest-cov
+requests
+tox

@@ -1,0 +1,8 @@
+include README.rst CHANGELOG.rst requirements_test.txt
+include setup.py MANIFEST.in
+
+recursive-include django_maintenance_page *
+recursive-include test_django_maintenance_page *
+
+global-exclude *.py[co]
+global-exclude .coverage

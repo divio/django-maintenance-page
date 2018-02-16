@@ -1,0 +1,6 @@
+{
+    "package-name": "django-maintenance-page",
+    "installed-apps": [
+        "django_maintenance_page"
+    ]
+}
