@@ -20,8 +20,6 @@ class Migration(migrations.Migration):
                 ('identifier', models.CharField(max_length=127, unique=True, verbose_name='Identifier')),
                 ('timestamp', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Timestamp')),
             ],
-            options={
-                'ordering': ('-timestamp',),
-            },
+            options={'default_permissions': '', 'ordering': ('-timestamp',)},
         ),
     ]
