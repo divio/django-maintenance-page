@@ -9,6 +9,6 @@ from .models import Release
 
 
 def handler500(request):
-    if conf.MAINTENANCE_MODE or Release.is_outdated():
+    if conf.MAINTENANCE_MODE or not(Release.is_up_to_date()):
         return render(request, 'maintenance.html', status=conf.MAINTENANCE_STATUS_CODE)
     return server_error(request)

@@ -28,5 +28,5 @@ class Release(models.Model):
         return current_release.identifier if current_release else ''  # To be compliant with empty (not unset) env vars
 
     @classmethod
-    def is_outdated(cls):
-        return cls.get_current_identifier() != os.environ.get(conf.MAINTENANCE_ENV_VAR, '')
+    def is_up_to_date(cls):
+        return cls.get_current_identifier() == os.environ.get(conf.MAINTENANCE_ENV_VAR, '')
