@@ -4,12 +4,11 @@ from functools import partial
 
 from aldryn_client import forms
 
-from django_maintenance_page import conf
-
 
 class Form(forms.BaseForm):
     def to_settings(self, data, settings):
         from aldryn_addons.utils import djsenv
+        from django_maintenance_page import conf
         env = partial(djsenv, settings=settings)
 
         release_identifier = env(conf.MAINTENANCE_ENV_VAR, required=True)
