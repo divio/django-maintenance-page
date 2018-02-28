@@ -19,6 +19,10 @@ class Form(forms.BaseForm):
         migration_commands = settings.setdefault('MIGRATION_COMMANDS', [])
         migration_commands.insert(
             0,
+            'python manage.py migrate --noinput django_maintenance_page',
+        )
+        migration_commands.insert(
+            1,
             'python manage.py create_release {}'.format(release_identifier),
         )
         return settings
