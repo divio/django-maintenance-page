@@ -15,7 +15,8 @@ class Form(forms.BaseForm):
         if env('DJANGO_MODE') == 'build':
             return settings
 
-        release_identifier = env(conf.MAINTENANCE_ENV_VAR, required=True)
+        release_required = not env('STAGE') == 'local'
+        release_identifier = env(conf.MAINTENANCE_ENV_VAR, required=release_required)
         migration_commands = settings.setdefault('MIGRATION_COMMANDS', [])
         migration_commands.insert(
             0,
